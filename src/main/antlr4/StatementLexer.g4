@@ -4,7 +4,6 @@
 
 lexer grammar StatementLexer;
 
-
 COMMA  : ',';
 COLON  : ':';
 LSQUAR : '[';
@@ -12,7 +11,7 @@ RSQUAR : ']';
 LCURLY : '{';
 RCURLY : '}';
 
-BOOLEAN : 'true' | 'false';
+BOOLEAN: 'true' | 'false';
 
 fragment SIGN      : [+-];
 fragment BIN       : [01];
@@ -27,8 +26,6 @@ BINARY      : SIGN? '0b' BIN+;
 HEXADECIMAL : SIGN? '0x' HEX+;
 
 STRING: '"' .*? '"';
-// todo: escape quotes
-// todo: multiline strings
 
 fragment IP_OCTET  : DEC | [1-9] DEC | '1' DEC DEC | '2' [0-4] DEC | '25' [0-5];
 fragment MAC_OCTET : HEX HEX;
@@ -38,7 +35,6 @@ fragment LS32      : (H16 ':' H16) | IPV4;
 MAC  : MAC_OCTET ':' MAC_OCTET ':' MAC_OCTET ':' MAC_OCTET ':' MAC_OCTET ':' MAC_OCTET;
 IPV4 : IP_OCTET '.' IP_OCTET '.' IP_OCTET '.' IP_OCTET | 'localhost';
 IPV6 : H16 ':' H16 ':' H16 ':' H16 ':' H16 ':' H16 ':' H16 ':' H16 | '::1';
-// todo: allow for shortened ipv6
 
 fragment COLOR_SHORT       : HEX HEX HEX;
 fragment COLOR_SHORT_ALPHA : COLOR_SHORT HEX;

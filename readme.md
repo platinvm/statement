@@ -21,6 +21,11 @@ Statement is a personal project that aims to create a simple, human-readable con
 - Color: `#ffffff`
 - Duration: `1h`, `10m`, `2.5s`, `50ms`
 
+### Todo
+- multiline strings
+- support quote escaping in strings
+- add shortened ipv6 support
+
 ## Structure
 - Arrays are wrapped in `[ ]`
 - Objects are wrapped in `{ }`
