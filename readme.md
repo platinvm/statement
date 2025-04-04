@@ -30,3 +30,20 @@ Statement is a personal project that aims to create a simple, human-readable con
 ## Examples
 
 Watch out the [examples directory](./src/test/resources/examples/) for some examples of the grammar.
+
+## Test
+
+To test the code run 
+```sh
+mvn clean test # "clean" is optional 
+```
+
+## Generate targets
+
+To generate sources run 
+```sh
+mvn clean generate-sources # "clean" is optional
+ls target/generated-sources/
+# java
+# ... other taget defined in pom.xml
+```
