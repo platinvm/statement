@@ -53,9 +53,10 @@
                 <version>1.22</version>
                 <configuration>
                     <verbose>false</verbose>
-                    <showTree>true</showTree>
+                    <showTree>false</showTree>
                     <entryPoint>statement</entryPoint>
                     <grammarName>Statement</grammarName>
+                    <testFileExtension>.stmt</testFileExtension>
                 </configuration>
                 <executions>
                     <execution>
