@@ -45,5 +45,5 @@ To generate sources run
 mvn clean generate-sources # "clean" is optional
 ls target/generated-sources/
 # java
-# ... other taget defined in pom.xml
+# ... other target defined in pom.xml
 ```
