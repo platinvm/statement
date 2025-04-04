@@ -1,0 +1,34 @@
+/*
+    this is an example of what it should
+    look like to write a configuraton
+*/
+
+{
+    device: {
+        id: 0xAA55,
+        type: "temperature_sensor",
+        mac: B8:27:EB:01:23:45,
+        firmware: 1.0.3,
+        license: true,
+        network: {
+            ip: 10.0.0.42,
+            gateway: 10.0.0.1,
+            subnet: 255.255.255.0,
+            ipv6: 7ca5:f1a0:53a2:2f44:5ec9:91ec:b41d:3807
+        },
+        settings: {
+            timeout: 10m,
+            sampling_interval: 2.5s,
+            threshold: 25.0,
+            status_led: {
+                normal: #00ff00,
+                warning: #ffff00,
+                critical: #ff0000
+            },
+            calibration: {
+                offset: 0b00010101,  // 21
+                factor: 1.075,
+            }
+        }
+    }
+}
