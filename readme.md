@@ -23,6 +23,7 @@ Statement is a personal project that aims to create a simple, human-readable con
 
 ### Todo
 - add shortened ipv6 support
+- refactor the lex to allow reusability of fragments and improve readability
 
 ## Structure
 - Arrays are wrapped in `[ ]`
