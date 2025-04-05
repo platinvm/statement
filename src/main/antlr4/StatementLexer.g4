@@ -26,10 +26,10 @@ BINARY      : SIGN? '0b' BIN+;
 HEXADECIMAL : SIGN? '0x' HEX+;
 PERCENTAGE  : (INTEGER | FLOAT) '%';
 
-fragment ESC: '\\' ('"' | '\\' | 'n' | 'r' | 't');
-STRING: '"' ( ESC | ~('"' | '\\' | '\r' | '\n') )* '"';
+fragment ESC : '\\' ('"' | '\\' | 'n' | 'r' | 't');
+STRING       : '"' ( ESC | ~('"' | '\\' | '\r' | '\n'))* '"';
 
-MULTILINE_STRING : '"""' (.)*? '"""' ;
+MULTILINE_STRING: '"""' (.)*? '"""';
 
 fragment IP_OCTET  : DEC | [1-9] DEC | '1' DEC DEC | '2' [0-4] DEC | '25' [0-5];
 fragment MAC_OCTET : HEX HEX;
@@ -49,7 +49,20 @@ COLOR: '#' ( COLOR_SHORT | COLOR_SHORT_ALPHA | COLOR_FULL | COLOR_FULL_ALPHA);
 
 SEMVER: DEC '.' DEC '.' DEC;
 
-DURATION: (INTEGER | FLOAT) ('s' | 'm' | 'h' | 'ms');
+DURATION:
+    (INTEGER | FLOAT) (
+        's'    // second
+        | 'ms' // millisecond
+        | 'us' // microsecond
+        | 'ns' // nanosecond
+        | 'm'  // minute
+        | 'h'  // hour
+        | 'd'  // day
+        | 'w'  // week
+        | 'mo' // month
+        | 'y'  // year
+    ) DURATION?
+;
 
 ID: [a-zA-Z_][a-zA-Z_0-9]*;
 
