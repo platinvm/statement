@@ -22,7 +22,6 @@ Statement is a personal project that aims to create a simple, human-readable con
 - Duration: `1h`, `10m`, `2.5s`, `50ms`
 
 ### Todo
-- multiline strings
 - add shortened ipv6 support
 
 ## Structure

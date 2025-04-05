@@ -19,6 +19,7 @@ value:
     | BINARY
     | HEXADECIMAL
     | STRING
+    | MULTILINE_STRING
     | IPV4
     | IPV6
     | MAC
