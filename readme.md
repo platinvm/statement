@@ -23,7 +23,7 @@ Statement is a personal project that aims to create a simple, human-readable con
 - Duration: `1h`, `10m`, `2.5s`, `50ms`
 - Timestamp: `2023-04-05T12:34:56+07:00`
 - Percentage: `50%`
-- Semver: `1.0.0`
+- Version: `1.0.0-alpha`
 
 ### Todo
 - refactor the lex to allow reusability of fragments and improve readability
