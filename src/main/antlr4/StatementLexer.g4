@@ -34,11 +34,34 @@ MULTILINE_STRING: '"""' (.)*? '"""';
 fragment IP_OCTET  : DEC | [1-9] DEC | '1' DEC DEC | '2' [0-4] DEC | '25' [0-5];
 fragment MAC_OCTET : HEX HEX;
 fragment H16       : HEX HEX? HEX? HEX?;
-fragment LS32      : (H16 ':' H16) | IPV4;
+fragment LS32      : H16 ':' H16 | IPV4;
 
 MAC  : MAC_OCTET ':' MAC_OCTET ':' MAC_OCTET ':' MAC_OCTET ':' MAC_OCTET ':' MAC_OCTET;
 IPV4 : IP_OCTET '.' IP_OCTET '.' IP_OCTET '.' IP_OCTET | 'localhost';
-IPV6 : H16 ':' H16 ':' H16 ':' H16 ':' H16 ':' H16 ':' H16 ':' H16 | '::1';
+
+IPV6:
+    H16 ':' H16 ':' H16 ':' H16 ':' H16 ':' H16 ':' H16 ':' H16
+    | '::' H16 (':' H16)? (':' H16)? (':' H16)? (':' H16)? (':' H16)? (':' H16)?
+    | H16 '::' H16 (':' H16)? (':' H16)? (':' H16)? (':' H16)? (':' H16)?
+    | H16 ':' H16 '::' H16 (':' H16)? (':' H16)? (':' H16)? (':' H16)?
+    | H16 ':' H16 ':' H16 '::' H16 (':' H16)? (':' H16)? (':' H16)?
+    | H16 ':' H16 ':' H16 ':' H16 '::' H16 (':' H16)? (':' H16)?
+    | H16 ':' H16 ':' H16 ':' H16 ':' H16 ':' H16 ':' H16 '::'
+    | H16 ':' H16 ':' H16 ':' H16 ':' H16 '::' H16 (':' H16)?
+    | H16 ':' H16 ':' H16 ':' H16 ':' H16 ':' H16 '::' H16
+    | H16 ':' H16 ':' H16 ':' H16 ':' H16 ':' H16 '::'
+    | H16 ':' H16 ':' H16 ':' H16 ':' H16 '::' LS32
+    | H16 ':' H16 ':' H16 ':' H16 ':' H16 '::'
+    | H16 ':' H16 ':' H16 ':' H16 '::' LS32
+    | H16 ':' H16 ':' H16 ':' H16 '::'
+    | H16 ':' H16 ':' H16 '::' LS32
+    | H16 ':' H16 ':' H16 '::'
+    | H16 ':' H16 '::' LS32
+    | H16 ':' H16 '::'
+    | H16 '::' LS32
+    | '::' LS32
+    | H16 '::'
+;
 
 fragment COLOR_SHORT       : HEX HEX HEX;
 fragment COLOR_SHORT_ALPHA : COLOR_SHORT HEX;
