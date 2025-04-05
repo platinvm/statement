@@ -14,6 +14,7 @@ Statement is a personal project that aims to create a simple, human-readable con
 - Hex: `0xFF`
 - Binary: `0b1001`
 - String: `"hello, world!"`
+- Multiline String: `"""multiline!"""`
 - Boolean: `true`, `false`
 - MAC Address: `ad:d2:5b:f1:17:b1`
 - IPv4 Address: `242.205.159.106`
