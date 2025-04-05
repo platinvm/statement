@@ -21,9 +21,10 @@ fragment HEX_LOWER : [0-9a-f];
 fragment HEX       : HEX_UPPER | HEX_LOWER;
 
 INTEGER     : SIGN? DEC+;
-FLOAT       : SIGN? DEC+ '.' DEC+;
+FLOAT       : INTEGER '.' DEC+;
 BINARY      : SIGN? '0b' BIN+;
 HEXADECIMAL : SIGN? '0x' HEX+;
+PERCENTAGE  : (INTEGER | FLOAT) '%';
 
 STRING: '"' .*? '"';
 
@@ -44,10 +45,8 @@ fragment COLOR_FULL_ALPHA  : COLOR_FULL HEX HEX;
 COLOR: '#' ( COLOR_SHORT | COLOR_SHORT_ALPHA | COLOR_FULL | COLOR_FULL_ALPHA);
 
 SEMVER: DEC '.' DEC '.' DEC;
-// todo: handle all valid semver
 
 DURATION: (INTEGER | FLOAT) ('s' | 'm' | 'h' | 'ms');
-// todo: add more types of duration and composablility (1m30s)
 
 ID: [a-zA-Z_][a-zA-Z_0-9]*;
 
