@@ -26,7 +26,8 @@ BINARY      : SIGN? '0b' BIN+;
 HEXADECIMAL : SIGN? '0x' HEX+;
 PERCENTAGE  : (INTEGER | FLOAT) '%';
 
-STRING: '"' .*? '"';
+fragment ESC: '\\' ('"' | '\\' | 'n' | 'r' | 't');
+STRING: '"' ( ESC | ~('"' | '\\' | '\r' | '\n') )* '"';
 
 fragment IP_OCTET  : DEC | [1-9] DEC | '1' DEC DEC | '2' [0-4] DEC | '25' [0-5];
 fragment MAC_OCTET : HEX HEX;

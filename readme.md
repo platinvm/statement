@@ -23,7 +23,6 @@ Statement is a personal project that aims to create a simple, human-readable con
 
 ### Todo
 - multiline strings
-- support quote escaping in strings
 - add shortened ipv6 support
 
 ## Structure
