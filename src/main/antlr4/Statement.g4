@@ -2,10 +2,10 @@
 // $antlr-format allowShortRulesOnASingleLine true, allowShortBlocksOnASingleLine true, minEmptyLines 0, alignSemicolons ownLine
 // $antlr-format alignColons trailing, singleLineOverrulesHangingColon true, alignLexerCommands true, alignLabels true, alignTrailers true
 
-parser grammar StatementParser;
+parser grammar Statement;
 
 options {
-    tokenVocab = StatementLexer;
+    tokenVocab = Vocab;
 }
 
 statement: value EOF | EOF;
