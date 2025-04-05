@@ -87,6 +87,13 @@ DURATION:
     ) DURATION?
 ;
 
+fragment PARTIAL_TIME : DEC DEC ':' DEC DEC ':' DEC DEC ('.' DEC+)?;
+fragment TIME_OFFSET  : 'Z' | ('+' | '-') DEC DEC ':' DEC DEC;
+fragment FULL_DATE    : DEC DEC DEC DEC '-' DEC DEC '-' DEC DEC;
+fragment FULL_TIME    : PARTIAL_TIME TIME_OFFSET;
+
+TIMESTAMP: FULL_DATE 'T' FULL_TIME;
+
 ID: [a-zA-Z_][a-zA-Z_0-9]*;
 
 WS                : [ \t\n\r\f]+  -> skip;
