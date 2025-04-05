@@ -20,6 +20,9 @@ Statement is a personal project that aims to create a simple, human-readable con
 - IPv6 Address: `601e:bd66:e1fd:5437:fa41:d25a:a5c2:122f`
 - Color: `#ffffff`
 - Duration: `1h`, `10m`, `2.5s`, `50ms`
+- Timestamp: `2023-04-05T12:34:56+07:00`
+- Percentage: `50%`
+- Semver: `1.0.0`
 
 ### Todo
 - refactor the lex to allow reusability of fragments and improve readability
