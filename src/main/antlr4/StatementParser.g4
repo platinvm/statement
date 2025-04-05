@@ -24,7 +24,7 @@ value:
     | IPV6
     | MAC
     | COLOR
-    | SEMVER
+    | VERSION
     | DURATION
     | TIMESTAMP
     | PERCENTAGE
