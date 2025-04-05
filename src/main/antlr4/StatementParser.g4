@@ -26,7 +26,9 @@ value:
     | COLOR
     | SEMVER
     | DURATION
+    | TIMESTAMP
     | PERCENTAGE
+    | TIMESTAMP
 ;
 
 array: '[' (value (',' value)* ','?)? ']';
