@@ -17,7 +17,7 @@
         <dependency>
             <groupId>org.antlr</groupId>
             <artifactId>antlr4-runtime</artifactId>
-            <version>4.11.1</version>
+            <version>4.13.1</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
@@ -28,20 +28,25 @@
             <plugin>
                 <groupId>org.antlr</groupId>
                 <artifactId>antlr4-maven-plugin</artifactId>
-                <version>4.11.1</version>
+                <version>4.13.1</version>
                 <executions>
                     <!-- java generation is needed for the test plugin  -->
                     <execution>
                         <goals>
                             <goal>antlr4</goal>
                         </goals>
-                        <id>Java</id>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>antlr4</goal>
+                        </goals>
+                        <id>Go</id>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/generated-sources/java</outputDirectory>
+                            <outputDirectory>${project.basedir}/gen/golang/parser</outputDirectory>
                             <visitor>true</visitor>
                             <listener>true</listener>
                             <options>
-                                <language>Java</language>
+                                <language>Go</language>
                             </options>
                         </configuration>
                     </execution>
