@@ -2,18 +2,24 @@
 // $antlr-format allowShortRulesOnASingleLine true, allowShortBlocksOnASingleLine true, minEmptyLines 0, alignSemicolons ownLine
 // $antlr-format alignColons trailing, singleLineOverrulesHangingColon true, alignLexerCommands true, alignLabels true, alignTrailers true
 
-parser grammar Statement;
+parser grammar StatementParser;
 
 options {
-    tokenVocab = Vocab;
+    tokenVocab = StatementLexer;
 }
 
-statement: value EOF | EOF;
+statement: expression EOF;
 
-value:
-    array
-    | object
-    | BOOLEAN
+expression: literal | array | object;
+
+array: '[' (expression (',' expression)* ','?)? ']';
+
+object: '{' (pair (',' pair)* ','?)? '}';
+
+pair: (ID | STRING) ':' expression;
+
+literal:
+    BOOLEAN
     | INTEGER
     | FLOAT
     | BINARY
@@ -28,9 +34,4 @@ value:
     | DURATION
     | TIMESTAMP
     | PERCENTAGE
-    | TIMESTAMP
 ;
-
-array: '[' (value (',' value)* ','?)? ']';
-
-object: '{' (ID ':' value (',' ID ':' value)* ','?)? '}';
